@@ -66,7 +66,7 @@ const images = [
 
 const galleryList = document.querySelector(".gallery");
 
-console.dir(galleryList);
+// console.dir(galleryList);
 
 function createMarkup(arr) {
   return arr
@@ -92,6 +92,9 @@ galleryList.insertAdjacentHTML("afterbegin", createMarkup(images));
 galleryList.addEventListener("click", handlerClick);
 
 function handlerClick(evn) {
+    if(evn.currentTarget === evn.target){
+        return;
+    }
   basicLightbox
     .create(
       `
@@ -99,6 +102,8 @@ function handlerClick(evn) {
 	`
     )
     .show();
+    console.log(evn.target)
+    console.log(evn.currentTarget);;
 
 }
 
